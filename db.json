@@ -1,0 +1,31 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Задача 1",
+      "description": "Описание задачи 1",
+      "completed": false,
+      "status": "В процессе",
+      "priority": "Высокий",
+      "priorityValue": 3
+    },
+    {
+      "id": 2,
+      "title": "Задача 2",
+      "description": "Описание задачи 2",
+      "completed": true,
+      "status": "Завершено",
+      "priority": "Средний",
+      "priorityValue": 2
+    },
+    {
+      "id": 3,
+      "title": "Задача 3",
+      "description": "Описание задачи 3",
+      "completed": false,
+      "status": "Отложено",
+      "priority": "Низкий",
+      "priorityValue": 1
+    }
+  ]
+}
