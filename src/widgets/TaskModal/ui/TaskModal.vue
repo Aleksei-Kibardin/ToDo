@@ -41,7 +41,7 @@
                         class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
                         Сохранить
                     </button>
-                    <button v-if="props.tasks" type="button"
+                    <button v-if="props.task" type="button" @click="remove"
                         class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
                         Удалить
                     </button>
@@ -56,16 +56,16 @@ import { ref } from 'vue';
 import type { Task } from '@/shared/types/TaskTypes';
 
 interface Props {
-    taskType?: string
-    tasks?: Task
+    taskType?: string;
+    task?: Task;
 }
 
-const props: Props = defineProps({});
-const emit = defineEmits(['save', 'close']);
+const props = defineProps<Props>();
+const emit = defineEmits(['save', 'close', 'remove']);
 
 type priorityText = "Средний" | "Высокий" | "Низкий"
 
-const task = ref<Omit<Task, 'id'>>({
+const task = ref<Omit<Task, 'id'>>(props.task ? props.task : {
     title: '',
     description: '',
     status: 'process',
@@ -74,13 +74,14 @@ const task = ref<Omit<Task, 'id'>>({
     statusText: 'В процессе',
 });
 
-if (props.tasks) {
-    task.value = props.tasks
-}
-
+console.log(task.value)
 
 const closeModal = () => {
     emit('close');
+};
+
+const remove = () => {
+    emit('remove');
 };
 
 const submitTask = () => {

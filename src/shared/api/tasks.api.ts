@@ -34,7 +34,7 @@ export async function updateTask(updatedTask: Task): Promise<Task> {
   return response.json()
 }
 
-export async function deleteTask(taskId: number): Promise<void> {
+export async function deleteTask(taskId: string | number): Promise<void> {
   const response = await fetch(`${API_URL}/${taskId}`, { method: 'DELETE' })
   if (!response.ok) {
     throw new Error('Ошибка удаления задачи')

@@ -41,7 +41,7 @@ export const useTaskStore = defineStore('taskStore', () => {
     }
   }
 
-  const removeTask = async (taskId: number) => {
+  const removeTask = async (taskId: string | number) => {
     await handleAsyncOperation(() => deleteTask(taskId), 'Ошибка удаления задачи')
     tasks.value = tasks.value.filter((t) => t.id !== taskId)
   }

@@ -3,16 +3,22 @@
         class="max-h-[60vh] h-fit wrap-task-list flex flex-col mt-30 w-100 bg-blue-100 dark:bg-cyan-800 p-5 rounded-md items-center overflow-hidden gap-10">
         <h2 class="dark:text-white text-black">{{ title }}</h2>
         <AddTask />
+
+        <TaskSearch v-model:searchQuery="searchQuery" />
+        <SelectFilter v-model="priorityFilter" :options="optionsPriorityFilter" />
+
         <div
-            class=" h-fit p-1 w-full flex gap-10 flex-col overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100 dark:scrollbar-thumb-cyan-600 dark:scrollbar-track-cyan-800">
-            <TaskItem v-for="task in taskList" :key="task.id" :task="task" v-lazy-render />
+            class="h-fit p-1 w-full flex gap-5 flex-col overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100 dark:scrollbar-thumb-cyan-600 dark:scrollbar-track-cyan-800">
+            <TaskItem v-for="task in filteredTaskList" :key="task.id" :task="task" v-lazy-render />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import TaskItem from '@/entities/Task/ui/TaskItem.vue';
-import { computed } from 'vue';
+import { TaskItem } from '@/entities/Task';
+import { TaskSearch } from '@/features/TaskSearch';
+import { SelectFilter } from '@/features/SelectFilter';
+import { computed, ref } from 'vue';
 import { useTaskStore } from '@/entities/Task/model/useTaskStore';
 import AddTask from '@/features/AddTask/ui/AddTask.vue';
 
@@ -29,13 +35,43 @@ const props = defineProps({
     },
 });
 
+const optionsPriorityFilter = [
+    {
+        title: "Все приоритеты",
+        value: null
+    },
+    {
+        title: "Высокий",
+        value: 3
+    },
+    {
+        title: "Средний",
+        value: 2
+    },
+    {
+        title: "Низкий",
+        value: 1
+    },
+]
+
+const searchQuery = ref('');
+const priorityFilter = ref(null);
+
 const taskList = computed(() => taskStore.tasks.filter((task) => task.status === props.taskType));
+
+// Фильтрация задач по поиску и приоритету
+const filteredTaskList = computed(() => {
+    return taskList.value.filter((task) => {
+        const matchesSearch = task.title.toLowerCase().includes(searchQuery.value.toLowerCase());
+        const matchesPriority = +priorityFilter.value! ? +task.priorityValue === +priorityFilter.value! : true;
+        return matchesSearch && matchesPriority;
+    });
+});
 </script>
 
 <style scoped>
 .scrollbar-thin::-webkit-scrollbar {
     width: 8px;
-    /* Ширина скроллбара */
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {

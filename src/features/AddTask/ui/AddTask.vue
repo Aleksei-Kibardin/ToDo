@@ -4,9 +4,7 @@
         <span class="text-lg">+</span>
     </button>
 
-    <Teleport to="body">
-        <TaskModal v-if="isModalOpen" @save="handleSaveTask" @close="closeModal" />
-    </Teleport>
+    <TaskModal v-if="isModalOpen" @save="handleSaveTask" @close="closeModal" />
 </template>
 
 <script setup lang="ts">
