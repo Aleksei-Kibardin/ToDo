@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed inset-0 bg-black bg-opacity-20 flex justify-center items-center z-30 backdrop-blur-sm">
+    <div class="fixed inset-0 bg-opacity-20 flex justify-center items-center z-30 backdrop-blur-sm">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-96 shadow-2xl transform transition-all duration-300">
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
