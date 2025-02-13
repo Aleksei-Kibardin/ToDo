@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { vi, describe, it, expect, beforeEach, type MockedFunction } from 'vitest'
 import { useTaskStore } from '@/entities/Task/model/useTaskStore'
 import { setActivePinia, createPinia } from 'pinia'
 import { fetchTasks, addTask, updateTask, deleteTask } from '@/shared/api/tasks.api'
@@ -31,7 +31,8 @@ describe('Task Store', () => {
         priorityValue: 1,
       },
     ]
-    ;(fetchTasks as vi.Mock).mockResolvedValue(mockTasks)
+
+    ;(fetchTasks as MockedFunction<typeof fetchTasks>).mockResolvedValue(mockTasks)
 
     await store.fetchAllTasks()
 
@@ -48,7 +49,8 @@ describe('Task Store', () => {
       priorityValue: 2,
     }
     const createdTask: Task = { id: '4', ...newTask }
-    ;(addTask as vi.Mock).mockResolvedValue(createdTask)
+
+    ;(addTask as MockedFunction<typeof addTask>).mockResolvedValue(createdTask)
 
     await store.addNewTask(newTask)
 
@@ -68,7 +70,8 @@ describe('Task Store', () => {
     store.tasks = [existingTask]
 
     const updatedTask: Task = { ...existingTask, title: 'Обновленная задача 3' }
-    ;(updateTask as vi.Mock).mockResolvedValue(updatedTask)
+
+    ;(updateTask as MockedFunction<typeof updateTask>).mockResolvedValue(updatedTask)
 
     await store.updateExistingTask(updatedTask)
 
@@ -86,7 +89,7 @@ describe('Task Store', () => {
       priorityValue: 1,
     }
     store.tasks = [taskToRemove]
-    ;(deleteTask as vi.Mock).mockResolvedValue(undefined)
+    ;(deleteTask as MockedFunction<typeof deleteTask>).mockResolvedValue(undefined)
 
     await store.removeTask(taskToRemove.id)
 

@@ -5,7 +5,7 @@
         </label>
         <select v-model="localValue"
             class="w-full p-2 border rounded dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option v-for="option in options" :key="option.value" :value="option.value">
+            <option v-for="option in options" :key="option.title" :value="option.value">
                 {{ option.title }}
             </option>
         </select>
