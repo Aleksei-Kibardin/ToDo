@@ -39,19 +39,19 @@ npm run dev
 
 ## Остальные скрипты:
 
-Запуск приложения в режиме разработки.
+Сборка проекта для продакшн.
 ```sh
-npm run build: Сборка проекта для продакшн.
+npm run build.
 ```
-
+Просмотр предварительного результата сборки
 ```sh
-npm run preview: Просмотр предварительного результата сборки.
+npm run preview.
 ```
-
+Запуск юнит-тестов с использованием Vitest
 ```sh
-npm run test: Запуск юнит-тестов с использованием Vitest.
+npm run test.
 ```
-
+Запуск end-to-end тестов с Cypress
 ```sh
-npm run test:e2e: Запуск end-to-end тестов с Cypress.
+npm run test:e2e.
 ```
