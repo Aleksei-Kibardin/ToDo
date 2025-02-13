@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex relative items-center justify-center h-full w-full bg-gradient-to-r from-blue-200 to-blue-500 dark:from-[#071734] dark:to-[#00001b] animate-gradient">
+    class="flex relative justify-center h-full w-full bg-gradient-to-r from-blue-200 to-blue-500 dark:from-[#071734] dark:to-[#00001b] animate-gradient">
     <!-- Слой звезд (только в тёмной теме) -->
     <div class="fixed inset-0 dark:block hidden pointer-events-none">
       <div v-for="(star, index) in stars" :key="index" class="absolute bg-white rounded-full opacity-80 animate-twinkle"
@@ -29,7 +29,7 @@ interface Star {
 const stars = ref<Star[]>([]);
 
 onMounted(() => {
-  const starCount = Math.floor(Math.random() * 11) + 20;
+  const starCount = Math.floor(Math.random() * 11) + 30;
   stars.value = Array.from({ length: starCount }, () => ({
     top: Math.random() * 100,
     left: Math.random() * 100,

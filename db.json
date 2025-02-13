@@ -4,28 +4,118 @@
       "id": 1,
       "title": "Задача 1",
       "description": "Описание задачи 1",
-      "completed": false,
-      "status": "В процессе",
-      "priority": "Высокий",
+      "statusText": "В процессе",
+      "status": "process",
+      "priorityText": "Высокий",
       "priorityValue": 3
     },
     {
       "id": 2,
       "title": "Задача 2",
       "description": "Описание задачи 2",
-      "completed": true,
-      "status": "Завершено",
-      "priority": "Средний",
+      "statusText": "Завершено",
+      "status": "ready",
+      "priorityText": "Средний",
       "priorityValue": 2
     },
     {
       "id": 3,
       "title": "Задача 3",
       "description": "Описание задачи 3",
-      "completed": false,
-      "status": "Отложено",
-      "priority": "Низкий",
+      "statusText": "Отложено",
+      "status": "deferred",
+      "priorityText": "Низкий",
       "priorityValue": 1
+    },
+    {
+      "id": 4,
+      "title": "Задача 4",
+      "description": "Описание задачи 4",
+      "statusText": "В процессе",
+      "status": "process",
+      "priorityText": "Высокий",
+      "priorityValue": 3
+    },
+    {
+      "id": 5,
+      "title": "Задача 5",
+      "description": "Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 Описание задачи 5 ",
+      "statusText": "Завершено",
+      "status": "ready",
+      "priorityText": "Средний",
+      "priorityValue": 2
+    },
+    {
+      "id": 36,
+      "title": "Задача 6",
+      "description": "Описание задачи 6",
+      "statusText": "Отложено",
+      "status": "deferred",
+      "priorityText": "Низкий",
+      "priorityValue": 1
+    },
+    {
+      "id": "f15b",
+      "title": "Лешка",
+      "description": "21421421421",
+      "status": "process",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "В процессе"
+    },
+    {
+      "id": "f01a",
+      "title": "123123",
+      "description": "авыфаыфв",
+      "status": "process",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "В процессе"
+    },
+    {
+      "id": "35b1",
+      "title": "авыфафыв",
+      "description": "афвыафыв",
+      "status": "process",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "В процессе"
+    },
+    {
+      "id": "053f",
+      "title": "афыв",
+      "description": "ыафв",
+      "status": "process",
+      "priorityText": "Средний",
+      "priorityValue": "2",
+      "statusText": "В процессе"
+    },
+    {
+      "id": "46fa",
+      "title": "в",
+      "description": "в",
+      "status": "process",
+      "priorityText": "Средний",
+      "priorityValue": "2",
+      "statusText": "В процессе"
+    },
+    {
+      "id": "868c",
+      "title": "12",
+      "description": "12",
+      "status": "process",
+      "priorityText": "Высокий",
+      "priorityValue": "3",
+      "statusText": "В процессе"
+    },
+    {
+      "id": "39d3",
+      "title": "12",
+      "description": "12",
+      "status": "process",
+      "priorityText": "Низкий",
+      "priorityValue": "1",
+      "statusText": "В процессе"
     }
   ]
 }

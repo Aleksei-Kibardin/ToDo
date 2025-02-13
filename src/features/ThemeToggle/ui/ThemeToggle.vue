@@ -1,5 +1,6 @@
 <template>
-    <button @click="toggleTheme" class="px-4 py-2 rounded-md flex items-center gap-2 transition-all duration-300 z-10"
+    <button @click="toggleTheme"
+        class="px-4 fixed py-2 rounded-md flex items-center gap-2 transition-all duration-300 z-10"
         :class="isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'">
         <span v-if="isDark">🌙 Dark</span>
         <span v-else>☀️ Light</span>
