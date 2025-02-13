@@ -1,61 +1,49 @@
 # ToDo
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Технологии, использованные в проекте
+Vue 3: Основной фреймворк для создания интерфейса.
+Pinia: Стейт-менеджмент для Vue 3.
+Tailwind CSS: Утилитарный CSS-фреймворк для стилизации интерфейса.
+Vue Router: Для маршрутизации в приложении.
+json-server: Легкий сервер для моков данных, который используется для имитации работы с API.
+Vitest: Для юнит-тестирования компонентов.
+Cypress: Для end-to-end тестирования приложения.
+Vue Toastification: Для отображения уведомлений.
 
 ## Project Setup
+##Как скачать и запустить проект
 
+Для того чтобы скачать и запустить проект, выполните следующие шаги:
+
+Клонируйте репозиторий с GitHub: Ссылка на репозиторий
+
+Перейдите в каталог проекта: 
+```sh
+cd ToDo
+```
+Установите зависимости:
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
+Запустите проект в режиме разработки:
 ```sh
 npm run dev
 ```
-
-### Type-Check, Compile and Minify for Production
-
+Запустите json-server: npm run json-server
 ```sh
-npm run build
+ npm run json-server
 ```
+Откройте приложение в браузере по адресу http://localhost:4173.
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
 
+
+## Остальные скрипты:
+
+Запуск приложения в режиме разработки.
 ```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+npm run dev: Запуск приложения в режиме разработки.
+npm run build: Сборка проекта для продакшн.
+npm run preview: Просмотр предварительного результата сборки.
+npm run test: Запуск юнит-тестов с использованием Vitest.
+npm run test:e2e: Запуск end-to-end тестов с Cypress.
 ```
