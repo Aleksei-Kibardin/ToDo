@@ -5,7 +5,7 @@
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
 
-                <InputItem testid="task-title" v-model:searchQuery="task.title" :title="'Название'" />
+                <InputItem testid="task-title" v-model="task.title" :title="'Название'" />
 
                 <div class="mb-4">
                     <label

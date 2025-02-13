@@ -3,7 +3,7 @@
         <label v-if="title" class="block text-sm font-medium mb-2 text-black dark:text-gray-300">
             {{ props.title }}
         </label>
-        <input :data-testid="testid" v-model="searchQuery" type="text" placeholder="Поиск по названию"
+        <input :data-testid="testid" v-model="searchQuery" type="text" :placeholder="props.placeholder"
             class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
     </div>
@@ -12,18 +12,20 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
-const searchQuery = ref('');
-
 interface Props {
     title?: string;
     testid?: string;
+    placeholder?: string;
+    modelValue: string | number | null;
 }
 
 const props = defineProps<Props>();
 
-const emit = defineEmits(['update:searchQuery']);
+const searchQuery = ref(props.modelValue);
+
+const emit = defineEmits(["update:modelValue"]);
 
 watch([searchQuery], ([newSearchQuery]) => {
-    emit('update:searchQuery', newSearchQuery);
+    emit('update:modelValue', newSearchQuery);
 });
 </script>

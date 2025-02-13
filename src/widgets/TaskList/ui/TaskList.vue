@@ -4,7 +4,7 @@
         <h2 class="dark:text-white text-black">{{ title }}</h2>
         <AddTask />
 
-        <InputItem v-model:searchQuery="searchQuery" />
+        <InputItem v-model:searchQuery="searchQuery" placeholder="Поиск по названию" />
 
         <div class="select-filter">
             <SelectItem v-model="priorityFilter" :options="optionsPriorityFilter" />
