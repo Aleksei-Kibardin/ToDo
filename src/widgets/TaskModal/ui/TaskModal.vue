@@ -1,5 +1,6 @@
 <template>
-    <div class="fixed inset-0 bg-opacity-20 flex justify-center items-center z-30 backdrop-blur-sm">
+    <div class="fixed inset-0 bg-opacity-20 flex justify-center items-center z-30 backdrop-blur-sm"
+        @click.self="closeModal">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-96 shadow-2xl transform transition-all duration-300">
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
@@ -7,20 +8,20 @@
                     <label
                         class="input-titel block text-sm font-medium mb-2 text-black dark:text-gray-300">Название</label>
                     <input data-testid="task-title" v-model="task.title" type="text"
-                        class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required />
                 </div>
                 <div class="mb-4">
                     <label
                         class="input-description block text-sm font-medium mb-2 text-black dark:text-gray-300">Описание</label>
                     <textarea v-model="task.description"
-                        class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
 
                 <SelectFilter v-model="task.priorityValue" :options="optionsPriority" :title="'Приоритет'" />
                 <SelectFilter v-model="task.status" :options="optionsStatus" :title="'Статус'" />
 
-                <div class="flex justify-end gap-2">
+                <div class="flex justify-end gap-2 mt-2">
                     <button type="button" @click="closeModal"
                         class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors duration-200">
                         Отмена

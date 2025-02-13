@@ -3,13 +3,18 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-#app {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  font-weight: normal;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
+#app {
+  width: 100%;
+  min-height: 100vh;
+  font-weight: normal;
+  overflow-x: hidden; /* Если контент может выходить за пределы по горизонтали */
+}
 @media (min-width: 1024px) {
   body {
     display: flex;

@@ -1,6 +1,6 @@
 <template>
     <div
-        class=" max-h-[60vh] h-fit wrap-task-list flex flex-col mt-30 w-100 bg-blue-100 dark:bg-cyan-800 p-5 rounded-md items-center overflow-hidden gap-10">
+        class=" h-lvh min-h-200 wrap-task-list flex flex-col mt-30 w-[100%] bg-blue-100 dark:bg-cyan-800 p-5 rounded-md items-center overflow-hidden gap-10">
         <h2 class="dark:text-white text-black">{{ title }}</h2>
         <AddTask />
 
@@ -11,7 +11,7 @@
         </div>
 
         <div
-            class="h-fit p-1 w-full flex gap-5 flex-col overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100 dark:scrollbar-thumb-cyan-600 dark:scrollbar-track-cyan-800">
+            class=" min-h-50 p-1 w-full flex gap-5 flex-col overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100 dark:scrollbar-thumb-cyan-600 dark:scrollbar-track-cyan-800">
             <TaskItem v-for="task in filteredTaskList" :key="task.id" :task="task" v-lazy-render />
         </div>
     </div>

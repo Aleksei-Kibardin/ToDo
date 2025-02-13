@@ -260,6 +260,24 @@
       "priorityText": "Средний",
       "priorityValue": 2,
       "statusText": "Завершено"
+    },
+    {
+      "id": "8da0",
+      "title": "Новая задача",
+      "description": "Описание новой задачи",
+      "status": "ready",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "Завершено"
+    },
+    {
+      "id": "3798",
+      "title": "Новая задача",
+      "description": "Описание новой задачи",
+      "status": "ready",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "Завершено"
     }
   ]
 }

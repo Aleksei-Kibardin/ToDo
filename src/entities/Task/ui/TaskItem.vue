@@ -1,14 +1,14 @@
 <template>
     <div
         class="task-item bg-sky-200 dark:bg-sky-950 p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-start flex-col sm:flex-row">
             <h3 class="text-lg font-semibold text-sky-800 dark:text-sky-200">
                 {{ task.title }}
             </h3>
-            <EditTask :task="props.task" />
+            <EditTask :task="props.task" class="mt-2 sm:mt-0" />
         </div>
 
-        <div class="mt-2 flex items-center gap-2">
+        <div class="mt-2 flex items-center gap-2 flex-wrap">
             <span class="px-2 py-1 text-sm rounded-full" :class="priorityClass">
                 {{ task.priorityText }}
             </span>
