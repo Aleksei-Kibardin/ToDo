@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-4xl h-[100vh] mx-auto px-4 py-8 text-black dark:text-white">
+    <div class="max-w-4xl h-[100vh] mx-auto mt-20 px-4 py-8 text-black dark:text-white">
         <header class="text-center mb-10">
             <h1 class="text-4xl font-bold text-blue-600 dark:text-blue-400">Документация проекта ToDo</h1>
             <p class="text-lg text-gray-600">Описание технологий, шаги по установке и запуску.</p>
