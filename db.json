@@ -386,6 +386,24 @@
       "priorityText": "Средний",
       "priorityValue": 2,
       "statusText": "В процессе"
+    },
+    {
+      "id": "8287",
+      "title": "Новая задача",
+      "description": "Описание новой задачи",
+      "status": "ready",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "Завершено"
+    },
+    {
+      "id": "f587",
+      "title": "Новая задача",
+      "description": "Описание новой задачи",
+      "status": "ready",
+      "priorityText": "Средний",
+      "priorityValue": 2,
+      "statusText": "Завершено"
     }
   ]
 }
