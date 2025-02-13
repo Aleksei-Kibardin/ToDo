@@ -5,12 +5,12 @@
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
 
-                <InputItem testid="task-title" v-model="task.title" :title="'Название'" />
+                <InputItem testid="task-title" v-model="task.title" :title="'Название'" required />
 
                 <div class="mb-4">
                     <label
                         class="input-description block text-sm font-medium mb-2 text-black dark:text-gray-300">Описание</label>
-                    <textarea v-model="task.description"
+                    <textarea v-model="task.description" required
                         class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
 

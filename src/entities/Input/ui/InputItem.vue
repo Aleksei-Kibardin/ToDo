@@ -4,8 +4,8 @@
             {{ props.title }}
         </label>
         <input :data-testid="testid" v-model="searchQuery" type="text" :placeholder="props.placeholder"
+            :required="props.required"
             class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
-
     </div>
 </template>
 
@@ -17,6 +17,7 @@ interface Props {
     testid?: string;
     placeholder?: string;
     modelValue: string | number | null;
+    required?: boolean;
 }
 
 const props = defineProps<Props>();
