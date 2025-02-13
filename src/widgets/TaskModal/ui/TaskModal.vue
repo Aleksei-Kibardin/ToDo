@@ -4,34 +4,22 @@
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
                 <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2 text-black dark:text-gray-300">Название</label>
-                    <input v-model="task.title" type="text"
+                    <label
+                        class="input-titel block text-sm font-medium mb-2 text-black dark:text-gray-300">Название</label>
+                    <input data-testid="task-title" v-model="task.title" type="text"
                         class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required />
                 </div>
                 <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2 text-black dark:text-gray-300">Описание</label>
+                    <label
+                        class="input-description block text-sm font-medium mb-2 text-black dark:text-gray-300">Описание</label>
                     <textarea v-model="task.description"
                         class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2 text-black dark:text-gray-300">Приоритет</label>
-                    <select v-model="task.priorityValue"
-                        class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="3">Высокий</option>
-                        <option value="2">Средний</option>
-                        <option value="1">Низкий</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2 text-black dark:text-gray-300">Статус</label>
-                    <select v-model="task.status"
-                        class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="process">В процессе</option>
-                        <option value="ready">Завершено</option>
-                        <option value="deferred">Отложено</option>
-                    </select>
-                </div>
+
+                <SelectFilter v-model="task.priorityValue" :options="optionsPriority" :title="'Приоритет'" />
+                <SelectFilter v-model="task.status" :options="optionsStatus" :title="'Статус'" />
+
                 <div class="flex justify-end gap-2">
                     <button type="button" @click="closeModal"
                         class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors duration-200">
@@ -54,6 +42,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { Task } from '@/shared/types/TaskTypes';
+import { SelectFilter } from '@/features/SelectFilter';
 
 interface Props {
     taskType?: string;
@@ -74,7 +63,34 @@ const task = ref<Omit<Task, 'id'>>(props.task ? props.task : {
     statusText: 'В процессе',
 });
 
-console.log(task.value)
+const optionsPriority = [
+    {
+        title: "Высокий",
+        value: 3
+    },
+    {
+        title: "Средний",
+        value: 2
+    },
+    {
+        title: "Низкий",
+        value: 1
+    },
+]
+const optionsStatus = [
+    {
+        title: "В процессе",
+        value: "process"
+    },
+    {
+        title: "Завершено",
+        value: "ready"
+    },
+    {
+        title: "Отложенно",
+        value: "deferred"
+    },
+]
 
 const closeModal = () => {
     emit('close');

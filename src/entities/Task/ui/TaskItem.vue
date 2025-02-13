@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-sky-200 dark:bg-sky-950 p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div
+        class="task-item bg-sky-200 dark:bg-sky-950 p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
         <div class="flex justify-between items-center">
             <h3 class="text-lg font-semibold text-sky-800 dark:text-sky-200">
                 {{ task.title }}

@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-4 w-full">
         <input v-model="searchQuery" type="text" placeholder="Поиск по названию"
-            class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
     </div>
 </template>

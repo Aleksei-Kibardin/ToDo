@@ -1,10 +1,10 @@
 <template>
-    <div class="flex flex-col gap-4 w-full">
+    <div class="flex mt-4 flex-col w-full">
         <label v-if="title" class="block text-sm font-medium mb-2 text-black dark:text-gray-300">
             {{ title }}
         </label>
         <select v-model="localValue"
-            class="w-full p-2 border rounded dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            class="w-full p-2 border rounded dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option v-for="option in options" :key="option.value" :value="option.value">
                 {{ option.title }}
             </option>

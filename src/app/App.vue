@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex relative justify-center h-full w-full bg-gradient-to-r from-blue-200 to-blue-500 dark:from-[#071734] dark:to-[#00001b] animate-gradient">
+    class="background-window flex relative justify-center h-full w-full bg-gradient-to-r from-blue-200 to-blue-500 dark:from-[#071734] dark:to-[#00001b] animate-gradient">
     <!-- Слой звезд (только в тёмной теме) -->
-    <div class="fixed inset-0 dark:block hidden pointer-events-none">
+    <div class="fixed inset-0 stars dark:block hidden pointer-events-none">
       <div v-for="(star, index) in stars" :key="index" class="absolute bg-white rounded-full opacity-80 animate-twinkle"
         :style="{
           width: `${star.size}px`,

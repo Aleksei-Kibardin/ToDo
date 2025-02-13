@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, watch } from 'vue'
 import type { Task } from '@/shared/types/TaskTypes'
 import { fetchTasks, addTask, updateTask, deleteTask } from '@/shared/api/tasks.api'
 
+const STORAGE_KEY = 'tasks'
+
 export const useTaskStore = defineStore('taskStore', () => {
-  const tasks = ref<Task[]>([])
+  const tasks = ref<Task[]>(loadTasksFromLocalStorage())
   const loading = ref(false)
   const error = ref<string | null>(null)
 
@@ -23,11 +25,13 @@ export const useTaskStore = defineStore('taskStore', () => {
 
   const fetchAllTasks = async () => {
     tasks.value = await handleAsyncOperation(() => fetchTasks(), 'Ошибка загрузки задач')
+    saveTasksToLocalStorage()
   }
 
   const addNewTask = async (task: Omit<Task, 'id'>) => {
     const newTask = await handleAsyncOperation(() => addTask(task), 'Ошибка добавления задачи')
     tasks.value.push(newTask)
+    saveTasksToLocalStorage()
   }
 
   const updateExistingTask = async (updatedTask: Task) => {
@@ -38,16 +42,26 @@ export const useTaskStore = defineStore('taskStore', () => {
     const index = tasks.value.findIndex((t) => t.id === newTask.id)
     if (index !== -1) {
       tasks.value[index] = newTask
+      saveTasksToLocalStorage()
     }
   }
 
   const removeTask = async (taskId: string | number) => {
     await handleAsyncOperation(() => deleteTask(taskId), 'Ошибка удаления задачи')
     tasks.value = tasks.value.filter((t) => t.id !== taskId)
+    saveTasksToLocalStorage()
   }
 
-  const completedTasks = computed(() => tasks.value.filter((task) => task.completed))
-  const activeTasks = computed(() => tasks.value.filter((task) => !task.completed))
+  function saveTasksToLocalStorage() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks.value))
+  }
+
+  function loadTasksFromLocalStorage(): Task[] {
+    const storedTasks = localStorage.getItem(STORAGE_KEY)
+    return storedTasks ? JSON.parse(storedTasks) : []
+  }
+
+  watch(tasks, saveTasksToLocalStorage, { deep: true })
 
   return {
     tasks,
@@ -57,7 +71,5 @@ export const useTaskStore = defineStore('taskStore', () => {
     addNewTask,
     updateExistingTask,
     removeTask,
-    completedTasks,
-    activeTasks,
   }
 })
