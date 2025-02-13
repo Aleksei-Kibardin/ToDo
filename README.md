@@ -90,6 +90,7 @@ npm run preview.
 ```sh
 npm run test.
 ```
+
 Запуск end-to-end тестов с Cypress
 ```sh
 npm run test:e2e.
