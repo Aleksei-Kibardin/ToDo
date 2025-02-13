@@ -1,5 +1,5 @@
 # ToDo
-ссылка на хост:  https://todo-obidzoda.netlify.app/about
+ссылка на хост:  https://todo-obidzoda.netlify.app/
 
 ## Технологии, использованные в проекте
 - Vue 3: Основной фреймворк для создания интерфейса.
