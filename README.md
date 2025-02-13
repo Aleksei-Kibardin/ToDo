@@ -1,61 +1,96 @@
 # ToDo
+ссылка на хост:  https://todo-obidzoda.netlify.app/
 
-This template should help get you started developing with Vue 3 in Vite.
+## Описание проекта
 
-## Recommended IDE Setup
+ToDo — это веб-приложение для управления задачами. Оно позволяет пользователям создавать, редактировать, фильтровать и удалять задачи. Приложение построено на основе Vue 3, TypeScript, Tailwind CSS и использует архитектуру FSD (Feature-Sliced Design).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Основной функционал
 
-## Type Support for `.vue` Imports in TS
+- Создание, редактирование и удаление задач
+- Фильтрация задач (по статусу, приоритету и другим параметрам)
+- Сохранение задач в localStorage
+- Поддержка темной и светлой темы
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Технологии, использованные в проекте
+- Vue 3: Основной фреймворк для создания интерфейса.
+- Pinia: Стейт-менеджмент для Vue 3.
+- Tailwind CSS: Утилитарный CSS-фреймворк для стилизации интерфейса.
+- Vue Router: Для маршрутизации в приложении.
+- json-server: Легкий сервер для моков данных, который используется для имитации работы с API.
+- Vitest: Для юнит-тестирования компонентов.
+- Cypress: Для end-to-end тестирования приложения.
+- Vue Toastification: Для отображения уведомлений.
 
-## Customize configuration
+структура проекта:
+  /src
+      /app        - инициализация приложения
+      /entities   - основные сущности (задачи, пользователи и т. д.)
+      /features   - функциональные модули (CRUD для задач, фильтрация и т. д.)
+      /shared     - общие компоненты, утилиты, API, типы
+      /widgets    - крупные компоненты (панели, списки и т. д.)
+      /pages      - страницы приложения
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Как скачать и запустить проект
 
-## Project Setup
+Для того чтобы скачать и запустить проект, выполните следующие шаги:
 
+Клонируйте репозиторий 
+```sh
+git clone https://github.com/Aleksei-Kibardin/ToDo.git
+```
+
+Перейдите в каталог проекта: 
+```sh
+cd ToDo
+```
+Установите зависимости:
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
+Запустите проект в режиме разработки:
 ```sh
 npm run dev
 ```
-
-### Type-Check, Compile and Minify for Production
-
+Запустите json-server
 ```sh
-npm run build
+ npm run json-server
+```
+Откройте приложение в браузере по адресу http://localhost:4173.
+
+## API (json-server)
+
+Запустите json-server
+```sh
+ npm run json-server
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Приложение использует json-server для работы с фейковым API. Доступные эндпоинты:
 
+GET /tasks — получить список задач
+
+POST /tasks — создать задачу
+
+PATCH /tasks/:id — обновить задачу
+
+DELETE /tasks/:id — удалить задачу
+
+
+## Остальные скрипты:
+
+Сборка проекта для продакшн.
 ```sh
-npm run test:unit
+npm run build.
 ```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
+Просмотр предварительного результата сборки
 ```sh
-npm run test:e2e:dev
+npm run preview.
 ```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
+Запуск юнит-тестов с использованием Vitest
 ```sh
-npm run build
-npm run test:e2e
+npm run test.
 ```
-
-### Lint with [ESLint](https://eslint.org/)
-
+Запуск end-to-end тестов с Cypress
 ```sh
-npm run lint
+npm run test:e2e.
 ```
