@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { defineAsyncComponent } from 'vue'
 const HomePage = defineAsyncComponent(() => import('@/pages/Home/ui/HomePage.vue'))
+const About = defineAsyncComponent(() => import('@/pages/About/ui/AboutPage.vue'))
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +14,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/pages'),
+      component: About,
     },
     {
       path: '/tasks',

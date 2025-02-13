@@ -12,13 +12,22 @@
         }"></div>
     </div>
     <ThemeToggle class="absolute top-4 right-4" />
+    <router-link :to="isHome ? '/about' : '/'"
+      class=" fixed px-5 py-2.5 top-5 left-5 z-30 duration-75 text-black dark:text-white  bg-[#ffffff] dark:bg-gray-800 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+      {{ isHome ? 'О проекте' : 'Главная' }}
+
+    </router-link>
     <router-view></router-view>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import ThemeToggle from "@/features/ThemeToggle/ui/ThemeToggle.vue";
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const isHome = computed(() => route.name === 'home');
 
 interface Star {
   top: number;

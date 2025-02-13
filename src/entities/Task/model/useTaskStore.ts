@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 import type { Task } from '@/shared/types/TaskTypes'
 import { fetchTasks, addTask, updateTask, deleteTask } from '@/shared/api/tasks.api'
+import { useToast } from 'vue-toastification'
 
 const STORAGE_KEY = 'tasks'
 
@@ -9,14 +10,24 @@ export const useTaskStore = defineStore('taskStore', () => {
   const tasks = ref<Task[]>(loadTasksFromLocalStorage())
   const loading = ref(false)
   const error = ref<string | null>(null)
+  const toast = useToast()
 
-  const handleAsyncOperation = async <T>(operation: () => Promise<T>, errorMessage: string) => {
+  const handleAsyncOperation = async <T>(
+    operation: () => Promise<T>,
+    errorMessage: string,
+    successMessage?: string,
+  ) => {
     loading.value = true
     error.value = null
     try {
-      return await operation()
+      const result = await operation()
+      if (successMessage) {
+        toast.success(successMessage)
+      }
+      return result
     } catch (err) {
       error.value = err instanceof Error ? err.message : errorMessage
+      toast.error(errorMessage)
       throw err
     } finally {
       loading.value = false
@@ -29,7 +40,11 @@ export const useTaskStore = defineStore('taskStore', () => {
   }
 
   const addNewTask = async (task: Omit<Task, 'id'>) => {
-    const newTask = await handleAsyncOperation(() => addTask(task), 'Ошибка добавления задачи')
+    const newTask = await handleAsyncOperation(
+      () => addTask(task),
+      'Ошибка добавления задачи',
+      'Задача успешно добавлена',
+    )
     tasks.value.push(newTask)
     saveTasksToLocalStorage()
   }
@@ -38,6 +53,7 @@ export const useTaskStore = defineStore('taskStore', () => {
     const newTask = await handleAsyncOperation(
       () => updateTask(updatedTask),
       'Ошибка обновления задачи',
+      'Задача успешно обновлена',
     )
     const index = tasks.value.findIndex((t) => t.id === newTask.id)
     if (index !== -1) {
@@ -47,7 +63,11 @@ export const useTaskStore = defineStore('taskStore', () => {
   }
 
   const removeTask = async (taskId: string | number) => {
-    await handleAsyncOperation(() => deleteTask(taskId), 'Ошибка удаления задачи')
+    await handleAsyncOperation(
+      () => deleteTask(taskId),
+      'Ошибка удаления задачи',
+      'Задача успешно удалена',
+    )
     tasks.value = tasks.value.filter((t) => t.id !== taskId)
     saveTasksToLocalStorage()
   }

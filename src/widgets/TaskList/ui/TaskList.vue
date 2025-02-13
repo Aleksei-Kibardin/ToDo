@@ -4,10 +4,10 @@
         <h2 class="dark:text-white text-black">{{ title }}</h2>
         <AddTask />
 
-        <TaskSearch v-model:searchQuery="searchQuery" />
+        <InputItem v-model:searchQuery="searchQuery" />
 
         <div class="select-filter">
-            <SelectFilter v-model="priorityFilter" :options="optionsPriorityFilter" />
+            <SelectItem v-model="priorityFilter" :options="optionsPriorityFilter" />
         </div>
 
         <div
@@ -19,8 +19,8 @@
 
 <script setup lang="ts">
 import { TaskItem } from '@/entities/Task';
-import { TaskSearch } from '@/features/TaskSearch';
-import { SelectFilter } from '@/features/SelectFilter';
+import { InputItem } from '@/entities/Input';
+import { SelectItem } from '@/entities/Select';
 import { computed, ref } from 'vue';
 import { useTaskStore } from '@/entities/Task/model/useTaskStore';
 import AddTask from '@/features/AddTask/ui/AddTask.vue';

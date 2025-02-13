@@ -4,13 +4,9 @@
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-96 shadow-2xl transform transition-all duration-300">
             <h2 class="text-xl font-bold mb-4 text-black dark:text-white">Новая задача</h2>
             <form @submit.prevent="submitTask">
-                <div class="mb-4">
-                    <label
-                        class="input-titel block text-sm font-medium mb-2 text-black dark:text-gray-300">Название</label>
-                    <input data-testid="task-title" v-model="task.title" type="text"
-                        class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required />
-                </div>
+
+                <InputItem testid="task-title" v-model:searchQuery="task.title" :title="'Название'" />
+
                 <div class="mb-4">
                     <label
                         class="input-description block text-sm font-medium mb-2 text-black dark:text-gray-300">Описание</label>
@@ -18,8 +14,8 @@
                         class="w-full p-2 border rounded text-black dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
 
-                <SelectFilter v-model="task.priorityValue" :options="optionsPriority" :title="'Приоритет'" />
-                <SelectFilter v-model="task.status" :options="optionsStatus" :title="'Статус'" />
+                <SelectItem v-model="task.priorityValue" :options="optionsPriority" :title="'Приоритет'" />
+                <SelectItem v-model="task.status" :options="optionsStatus" :title="'Статус'" />
 
                 <div class="flex justify-end gap-2 mt-2">
                     <button type="button" @click="closeModal"
@@ -43,7 +39,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { Task } from '@/shared/types/TaskTypes';
-import { SelectFilter } from '@/features/SelectFilter';
+import { SelectItem } from '@/entities/Select';
+import { InputItem } from '@/entities/Input';
 
 interface Props {
     taskType?: string;
