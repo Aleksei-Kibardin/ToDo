@@ -47,10 +47,8 @@
         </section>
 
         <section class="mb-8">
-            <h2 class="text-3xl font-semibold text-blue-500 dark:text-blue-300 mb-4">Скрипты</h2>
-            <p class="mb-4">В проекте есть несколько полезных скриптов для работы:</p>
+            <h2 class="text-3xl font-semibold text-blue-500 dark:text-blue-300 mb-4">Остальные скрипты:</h2>
             <ul class="list-disc pl-5">
-                <li><strong>npm run dev:</strong> Запуск приложения в режиме разработки.</li>
                 <li><strong>npm run build:</strong> Сборка проекта для продакшн.</li>
                 <li><strong>npm run preview:</strong> Просмотр предварительного результата сборки.</li>
                 <li><strong>npm run test:</strong> Запуск юнит-тестов с использованием Vitest.</li>
