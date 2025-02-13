@@ -1,5 +1,5 @@
 <template>
-    <div class="Tasks container mx-auto p-4 mt-20">
+    <div class="Tasks h-full container mx-auto p-4 mt-20">
         <h1 class="text-2xl font-bold text-center mt-50">Список задач</h1>
 
         <div v-if="taskStore.loading" class="text-center">Загрузка...</div>
