@@ -1,6 +1,6 @@
 import type { Task } from '@/shared/types/TaskTypes'
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/tasks'
 
 export async function fetchTasks(): Promise<Task[]> {
   const response = await fetch(API_URL)
