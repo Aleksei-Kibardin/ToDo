@@ -26,7 +26,7 @@
             <p class="mb-4">Для того чтобы скачать и запустить проект, выполните следующие шаги:</p>
             <ol class="list-decimal pl-5">
                 <li>Клонируйте репозиторий с GitHub:
-                    <a href="https://github.com/ваш_проект" target="_blank"
+                    <a href="https://github.com/Aleksei-Kibardin/ToDo" target="_blank"
                         class="text-blue-600 dark:text-blue-400">Ссылка на
                         репозиторий</a>
                 </li>
